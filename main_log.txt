@@ -1,0 +1,1174 @@
+[21:04:28.132] === cs2ext start === build 14195  attached=0 pid=0
+[21:04:28.154] fallback window created hwnd=00000000004B06DA 2560x1400 at (0,0)
+[21:04:28.154] surface resolved mode=own-window hwnd=00000000004B06DA size=2560x1400 layered=YES transparent=no
+[21:04:28.189] swapchain ok  effect=DISCARD  hwnd=00000000004B06DA  2560x1400  layered=yes
+[21:04:28.189] InitD3D ok  swap=00000000004DA950 rtv=00000000004DBCB8 mode=own-window
+[21:04:28.230] present #1 hr=0x00000000 windowed=2560x1400 rtv=00000000004DBCB8
+[21:04:28.251] present #2 hr=0x00000000 windowed=2560x1400 rtv=00000000004DBCB8
+[21:04:28.265] present #3 hr=0x00000000 windowed=2560x1400 rtv=00000000004DBCB8
+[21:06:23.905] === cs2ext start === build 14195  attached=0 pid=0
+[21:06:23.923] fallback window created hwnd=00000000000906E8 2560x1400 at (0,0)
+[21:06:23.923] surface resolved mode=own-window hwnd=00000000000906E8 size=2560x1400 layered=YES transparent=no
+[21:06:23.955] swapchain ok  effect=DISCARD  hwnd=00000000000906E8  2560x1400  layered=yes
+[21:06:23.955] InitD3D ok  swap=00000000005EE310 rtv=00000000005BC1B8 mode=own-window
+[21:06:24.007] present #1 hr=0x00000000 windowed=2560x1400 rtv=00000000005BC1B8
+[21:06:24.030] present #2 hr=0x00000000 windowed=2560x1400 rtv=00000000005BC1B8
+[21:06:24.060] present #3 hr=0x00000000 windowed=2560x1400 rtv=00000000005BC1B8
+[21:16:07.195] === cs2ext start === build 14195  attached=1 pid=2416
+[21:16:07.195] surface resolved mode=inherited hwnd=00000000000503D6 size=2560x1440 layered=no transparent=no
+[21:16:07.247] swapchain FAILED  effect=FLIP_DISCARD  hwnd=00000000000503D6
+[21:16:07.269] swapchain ok  effect=DISCARD  hwnd=00000000000503D6  2560x1440  layered=no
+[21:16:07.269] InitD3D ok  swap=00000000005FAEC0 rtv=0000000000606438 mode=inherited
+[21:16:07.296] present #1 hr=0x00000000 windowed=2560x1440 rtv=0000000000606438
+[21:16:07.310] present #2 hr=0x00000000 windowed=2560x1440 rtv=0000000000606438
+[21:16:07.326] present #3 hr=0x00000000 windowed=2560x1440 rtv=0000000000606438
+[21:16:46.112] attach via name failed: process not found (Toolhelp snapshot)
+[21:16:46.112] found game window owner pid=2416 - retrying attach by pid
+[21:16:46.113] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:16:46.113] === cs2ext start === build 14195  attached=0 pid=0
+[21:16:46.129] fallback window created hwnd=00000000000806C8 2560x1400 at (0,0)
+[21:16:46.129] surface resolved mode=own-window hwnd=00000000000806C8 size=2560x1400 layered=YES transparent=no
+[21:16:46.163] swapchain ok  effect=DISCARD  hwnd=00000000000806C8  2560x1400  layered=yes
+[21:16:46.163] InitD3D ok  swap=00000000004EA030 rtv=00000000004BC478 mode=own-window
+[21:16:46.213] present #1 hr=0x00000000 windowed=2560x1400 rtv=00000000004BC478
+[21:16:46.241] present #2 hr=0x00000000 windowed=2560x1400 rtv=00000000004BC478
+[21:16:46.272] present #3 hr=0x00000000 windowed=2560x1400 rtv=00000000004BC478
+[21:16:48.202] attach via name failed: process not found (Toolhelp snapshot)
+[21:16:48.203] found game window owner pid=2416 - retrying attach by pid
+[21:16:48.203] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:16:48.203] attach FAILED: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:16:50.224] attach via name failed: process not found (Toolhelp snapshot)
+[21:16:50.225] found game window owner pid=2416 - retrying attach by pid
+[21:16:50.225] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:16:52.260] attach via name failed: process not found (Toolhelp snapshot)
+[21:16:52.260] found game window owner pid=2416 - retrying attach by pid
+[21:16:52.260] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:16:54.273] attach via name failed: process not found (Toolhelp snapshot)
+[21:16:54.273] found game window owner pid=2416 - retrying attach by pid
+[21:16:54.274] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:16:56.290] attach via name failed: process not found (Toolhelp snapshot)
+[21:16:56.291] found game window owner pid=2416 - retrying attach by pid
+[21:16:56.291] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:16:58.317] attach via name failed: process not found (Toolhelp snapshot)
+[21:16:58.317] found game window owner pid=2416 - retrying attach by pid
+[21:16:58.317] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:00.334] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:00.336] found game window owner pid=2416 - retrying attach by pid
+[21:17:00.337] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:02.364] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:02.364] found game window owner pid=2416 - retrying attach by pid
+[21:17:02.364] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:04.398] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:04.398] found game window owner pid=2416 - retrying attach by pid
+[21:17:04.398] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:06.430] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:06.431] found game window owner pid=2416 - retrying attach by pid
+[21:17:06.431] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:08.446] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:08.447] found game window owner pid=2416 - retrying attach by pid
+[21:17:08.447] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:10.471] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:10.471] found game window owner pid=2416 - retrying attach by pid
+[21:17:10.471] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:12.521] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:12.521] found game window owner pid=2416 - retrying attach by pid
+[21:17:12.522] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:14.545] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:14.545] found game window owner pid=2416 - retrying attach by pid
+[21:17:14.546] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:16.563] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:16.564] found game window owner pid=2416 - retrying attach by pid
+[21:17:16.564] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:18.589] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:18.590] found game window owner pid=2416 - retrying attach by pid
+[21:17:18.591] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:20.609] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:20.609] found game window owner pid=2416 - retrying attach by pid
+[21:17:20.609] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:22.644] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:22.644] found game window owner pid=2416 - retrying attach by pid
+[21:17:22.644] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:24.651] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:24.651] found game window owner pid=2416 - retrying attach by pid
+[21:17:24.652] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:26.683] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:26.684] found game window owner pid=2416 - retrying attach by pid
+[21:17:26.684] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:28.720] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:28.722] found game window owner pid=2416 - retrying attach by pid
+[21:17:28.722] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:30.752] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:30.753] found game window owner pid=2416 - retrying attach by pid
+[21:17:30.753] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:32.770] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:32.771] found game window owner pid=2416 - retrying attach by pid
+[21:17:32.771] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:34.797] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:34.797] found game window owner pid=2416 - retrying attach by pid
+[21:17:34.797] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:36.824] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:36.824] found game window owner pid=2416 - retrying attach by pid
+[21:17:36.825] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:38.831] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:38.831] found game window owner pid=2416 - retrying attach by pid
+[21:17:38.831] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:40.850] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:40.851] found game window owner pid=2416 - retrying attach by pid
+[21:17:40.851] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:42.870] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:42.870] found game window owner pid=2416 - retrying attach by pid
+[21:17:42.871] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:44.879] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:44.879] found game window owner pid=2416 - retrying attach by pid
+[21:17:44.880] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:46.907] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:46.909] found game window owner pid=2416 - retrying attach by pid
+[21:17:46.909] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:48.953] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:48.955] found game window owner pid=2416 - retrying attach by pid
+[21:17:48.955] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:50.978] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:50.980] found game window owner pid=2416 - retrying attach by pid
+[21:17:50.980] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:53.001] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:53.002] found game window owner pid=2416 - retrying attach by pid
+[21:17:53.002] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:55.019] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:55.021] found game window owner pid=2416 - retrying attach by pid
+[21:17:55.021] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:57.033] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:57.033] found game window owner pid=2416 - retrying attach by pid
+[21:17:57.033] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:17:59.051] attach via name failed: process not found (Toolhelp snapshot)
+[21:17:59.051] found game window owner pid=2416 - retrying attach by pid
+[21:17:59.051] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:01.086] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:01.086] found game window owner pid=2416 - retrying attach by pid
+[21:18:01.086] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:03.106] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:03.107] found game window owner pid=2416 - retrying attach by pid
+[21:18:03.107] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:05.133] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:05.134] found game window owner pid=2416 - retrying attach by pid
+[21:18:05.134] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:07.137] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:07.138] found game window owner pid=2416 - retrying attach by pid
+[21:18:07.138] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:09.169] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:09.170] found game window owner pid=2416 - retrying attach by pid
+[21:18:09.170] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:11.216] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:11.216] found game window owner pid=2416 - retrying attach by pid
+[21:18:11.216] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:13.217] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:13.217] found game window owner pid=2416 - retrying attach by pid
+[21:18:13.217] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:15.249] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:15.249] found game window owner pid=2416 - retrying attach by pid
+[21:18:15.249] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:17.262] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:17.263] found game window owner pid=2416 - retrying attach by pid
+[21:18:17.263] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:19.276] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:19.277] found game window owner pid=2416 - retrying attach by pid
+[21:18:19.277] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:21.297] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:21.297] found game window owner pid=2416 - retrying attach by pid
+[21:18:21.298] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:23.315] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:23.316] found game window owner pid=2416 - retrying attach by pid
+[21:18:23.316] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:25.323] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:25.324] found game window owner pid=2416 - retrying attach by pid
+[21:18:25.324] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:27.347] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:27.347] found game window owner pid=2416 - retrying attach by pid
+[21:18:27.347] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:29.365] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:29.366] found game window owner pid=2416 - retrying attach by pid
+[21:18:29.366] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:31.425] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:31.426] found game window owner pid=2416 - retrying attach by pid
+[21:18:31.426] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:33.431] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:33.432] found game window owner pid=2416 - retrying attach by pid
+[21:18:33.433] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:35.461] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:35.462] found game window owner pid=2416 - retrying attach by pid
+[21:18:35.462] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:37.477] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:37.478] found game window owner pid=2416 - retrying attach by pid
+[21:18:37.478] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:39.492] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:39.493] found game window owner pid=2416 - retrying attach by pid
+[21:18:39.494] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:41.525] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:41.525] found game window owner pid=2416 - retrying attach by pid
+[21:18:41.526] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:43.545] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:43.546] found game window owner pid=2416 - retrying attach by pid
+[21:18:43.546] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:45.550] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:45.550] found game window owner pid=2416 - retrying attach by pid
+[21:18:45.550] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:47.571] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:47.571] found game window owner pid=2416 - retrying attach by pid
+[21:18:47.571] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:49.594] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:49.594] found game window owner pid=2416 - retrying attach by pid
+[21:18:49.594] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:51.618] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:51.619] found game window owner pid=2416 - retrying attach by pid
+[21:18:51.619] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:53.648] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:53.648] found game window owner pid=2416 - retrying attach by pid
+[21:18:53.648] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:55.684] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:55.685] found game window owner pid=2416 - retrying attach by pid
+[21:18:55.685] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:57.710] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:57.711] found game window owner pid=2416 - retrying attach by pid
+[21:18:57.711] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:18:59.730] attach via name failed: process not found (Toolhelp snapshot)
+[21:18:59.732] found game window owner pid=2416 - retrying attach by pid
+[21:18:59.732] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:01.756] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:01.756] found game window owner pid=2416 - retrying attach by pid
+[21:19:01.756] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:03.764] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:03.765] found game window owner pid=2416 - retrying attach by pid
+[21:19:03.765] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:05.801] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:05.801] found game window owner pid=2416 - retrying attach by pid
+[21:19:05.801] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:07.811] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:07.812] found game window owner pid=2416 - retrying attach by pid
+[21:19:07.812] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:09.830] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:09.830] found game window owner pid=2416 - retrying attach by pid
+[21:19:09.830] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:11.848] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:11.848] found game window owner pid=2416 - retrying attach by pid
+[21:19:11.848] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:13.876] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:13.876] found game window owner pid=2416 - retrying attach by pid
+[21:19:13.877] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:15.893] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:15.894] found game window owner pid=2416 - retrying attach by pid
+[21:19:15.895] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:17.923] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:17.923] found game window owner pid=2416 - retrying attach by pid
+[21:19:17.923] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:19.945] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:19.946] found game window owner pid=2416 - retrying attach by pid
+[21:19:19.946] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:21.966] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:21.966] found game window owner pid=2416 - retrying attach by pid
+[21:19:21.966] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:23.992] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:23.992] found game window owner pid=2416 - retrying attach by pid
+[21:19:23.992] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:26.007] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:26.008] found game window owner pid=2416 - retrying attach by pid
+[21:19:26.009] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:28.033] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:28.034] found game window owner pid=2416 - retrying attach by pid
+[21:19:28.034] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:30.055] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:30.056] found game window owner pid=2416 - retrying attach by pid
+[21:19:30.056] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:32.075] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:32.075] found game window owner pid=2416 - retrying attach by pid
+[21:19:32.075] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:34.115] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:34.115] found game window owner pid=2416 - retrying attach by pid
+[21:19:34.115] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:36.137] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:36.138] found game window owner pid=2416 - retrying attach by pid
+[21:19:36.138] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:38.170] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:38.170] found game window owner pid=2416 - retrying attach by pid
+[21:19:38.170] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:40.199] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:40.200] found game window owner pid=2416 - retrying attach by pid
+[21:19:40.200] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:42.218] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:42.219] found game window owner pid=2416 - retrying attach by pid
+[21:19:42.219] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:44.239] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:44.239] found game window owner pid=2416 - retrying attach by pid
+[21:19:44.240] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:46.277] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:46.277] found game window owner pid=2416 - retrying attach by pid
+[21:19:46.277] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:48.328] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:48.328] found game window owner pid=2416 - retrying attach by pid
+[21:19:48.329] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:50.336] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:50.337] found game window owner pid=2416 - retrying attach by pid
+[21:19:50.337] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:52.355] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:52.357] found game window owner pid=2416 - retrying attach by pid
+[21:19:52.357] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:54.381] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:54.382] found game window owner pid=2416 - retrying attach by pid
+[21:19:54.383] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:56.416] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:56.416] found game window owner pid=2416 - retrying attach by pid
+[21:19:56.416] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:19:58.443] attach via name failed: process not found (Toolhelp snapshot)
+[21:19:58.444] found game window owner pid=2416 - retrying attach by pid
+[21:19:58.444] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:00.475] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:00.476] found game window owner pid=2416 - retrying attach by pid
+[21:20:00.476] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:02.505] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:02.507] found game window owner pid=2416 - retrying attach by pid
+[21:20:02.507] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:04.525] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:04.526] found game window owner pid=2416 - retrying attach by pid
+[21:20:04.527] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:06.549] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:06.550] found game window owner pid=2416 - retrying attach by pid
+[21:20:06.550] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:08.580] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:08.581] found game window owner pid=2416 - retrying attach by pid
+[21:20:08.581] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:10.616] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:10.616] found game window owner pid=2416 - retrying attach by pid
+[21:20:10.617] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:12.640] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:12.640] found game window owner pid=2416 - retrying attach by pid
+[21:20:12.640] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:14.663] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:14.664] found game window owner pid=2416 - retrying attach by pid
+[21:20:14.664] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:16.676] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:16.677] found game window owner pid=2416 - retrying attach by pid
+[21:20:16.677] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:18.698] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:18.698] found game window owner pid=2416 - retrying attach by pid
+[21:20:18.698] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:20.706] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:20.707] found game window owner pid=2416 - retrying attach by pid
+[21:20:20.707] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:22.723] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:22.724] found game window owner pid=2416 - retrying attach by pid
+[21:20:22.724] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:24.747] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:24.748] found game window owner pid=2416 - retrying attach by pid
+[21:20:24.748] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:26.763] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:26.763] found game window owner pid=2416 - retrying attach by pid
+[21:20:26.763] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:28.795] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:28.795] found game window owner pid=2416 - retrying attach by pid
+[21:20:28.795] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:30.811] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:30.811] found game window owner pid=2416 - retrying attach by pid
+[21:20:30.811] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:32.827] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:32.828] found game window owner pid=2416 - retrying attach by pid
+[21:20:32.828] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:34.854] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:34.854] found game window owner pid=2416 - retrying attach by pid
+[21:20:34.854] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:36.876] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:36.876] found game window owner pid=2416 - retrying attach by pid
+[21:20:36.876] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:38.903] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:38.904] found game window owner pid=2416 - retrying attach by pid
+[21:20:38.904] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:40.926] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:40.927] found game window owner pid=2416 - retrying attach by pid
+[21:20:40.927] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:42.947] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:42.948] found game window owner pid=2416 - retrying attach by pid
+[21:20:42.948] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:44.961] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:44.962] found game window owner pid=2416 - retrying attach by pid
+[21:20:44.962] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:46.980] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:46.981] found game window owner pid=2416 - retrying attach by pid
+[21:20:46.981] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:48.991] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:48.992] found game window owner pid=2416 - retrying attach by pid
+[21:20:48.992] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:51.011] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:51.012] found game window owner pid=2416 - retrying attach by pid
+[21:20:51.012] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:53.030] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:53.031] found game window owner pid=2416 - retrying attach by pid
+[21:20:53.031] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:55.048] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:55.048] found game window owner pid=2416 - retrying attach by pid
+[21:20:55.049] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:57.074] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:57.075] found game window owner pid=2416 - retrying attach by pid
+[21:20:57.075] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:20:59.082] attach via name failed: process not found (Toolhelp snapshot)
+[21:20:59.082] found game window owner pid=2416 - retrying attach by pid
+[21:20:59.082] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:01.099] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:01.100] found game window owner pid=2416 - retrying attach by pid
+[21:21:01.100] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:03.120] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:03.121] found game window owner pid=2416 - retrying attach by pid
+[21:21:03.121] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:05.137] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:05.138] found game window owner pid=2416 - retrying attach by pid
+[21:21:05.138] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:07.157] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:07.157] found game window owner pid=2416 - retrying attach by pid
+[21:21:07.157] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:09.179] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:09.179] found game window owner pid=2416 - retrying attach by pid
+[21:21:09.179] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:11.202] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:11.203] found game window owner pid=2416 - retrying attach by pid
+[21:21:11.203] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:13.204] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:13.204] found game window owner pid=2416 - retrying attach by pid
+[21:21:13.204] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:15.250] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:15.251] found game window owner pid=2416 - retrying attach by pid
+[21:21:15.251] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:17.271] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:17.271] found game window owner pid=2416 - retrying attach by pid
+[21:21:17.271] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:19.292] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:19.292] found game window owner pid=2416 - retrying attach by pid
+[21:21:19.293] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:21.297] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:21.298] found game window owner pid=2416 - retrying attach by pid
+[21:21:21.298] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:23.330] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:23.331] found game window owner pid=2416 - retrying attach by pid
+[21:21:23.331] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:25.349] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:25.350] found game window owner pid=2416 - retrying attach by pid
+[21:21:25.350] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:27.380] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:27.381] found game window owner pid=2416 - retrying attach by pid
+[21:21:27.381] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:29.395] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:29.396] found game window owner pid=2416 - retrying attach by pid
+[21:21:29.396] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:31.406] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:31.406] found game window owner pid=2416 - retrying attach by pid
+[21:21:31.407] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:33.437] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:33.438] found game window owner pid=2416 - retrying attach by pid
+[21:21:33.438] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:35.457] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:35.457] found game window owner pid=2416 - retrying attach by pid
+[21:21:35.457] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:37.476] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:37.477] found game window owner pid=2416 - retrying attach by pid
+[21:21:37.477] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:39.487] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:39.488] found game window owner pid=2416 - retrying attach by pid
+[21:21:39.488] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:41.515] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:41.516] found game window owner pid=2416 - retrying attach by pid
+[21:21:41.516] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:43.536] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:43.537] found game window owner pid=2416 - retrying attach by pid
+[21:21:43.537] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:45.560] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:45.560] found game window owner pid=2416 - retrying attach by pid
+[21:21:45.561] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:47.593] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:47.594] found game window owner pid=2416 - retrying attach by pid
+[21:21:47.594] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:49.629] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:49.629] found game window owner pid=2416 - retrying attach by pid
+[21:21:49.629] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:51.651] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:51.651] found game window owner pid=2416 - retrying attach by pid
+[21:21:51.652] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:53.685] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:53.686] found game window owner pid=2416 - retrying attach by pid
+[21:21:53.686] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:55.701] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:55.703] found game window owner pid=2416 - retrying attach by pid
+[21:21:55.703] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:57.734] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:57.735] found game window owner pid=2416 - retrying attach by pid
+[21:21:57.735] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:21:59.747] attach via name failed: process not found (Toolhelp snapshot)
+[21:21:59.748] found game window owner pid=2416 - retrying attach by pid
+[21:21:59.748] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:01.776] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:01.776] found game window owner pid=2416 - retrying attach by pid
+[21:22:01.777] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:03.798] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:03.799] found game window owner pid=2416 - retrying attach by pid
+[21:22:03.799] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:05.803] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:05.803] found game window owner pid=2416 - retrying attach by pid
+[21:22:05.804] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:07.838] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:07.838] found game window owner pid=2416 - retrying attach by pid
+[21:22:07.839] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:09.859] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:09.860] found game window owner pid=2416 - retrying attach by pid
+[21:22:09.860] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:11.889] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:11.890] found game window owner pid=2416 - retrying attach by pid
+[21:22:11.891] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:13.909] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:13.909] found game window owner pid=2416 - retrying attach by pid
+[21:22:13.909] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:15.926] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:15.927] found game window owner pid=2416 - retrying attach by pid
+[21:22:15.927] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:17.945] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:17.945] found game window owner pid=2416 - retrying attach by pid
+[21:22:17.945] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:19.961] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:19.961] found game window owner pid=2416 - retrying attach by pid
+[21:22:19.962] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:21.997] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:21.998] found game window owner pid=2416 - retrying attach by pid
+[21:22:21.998] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:24.019] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:24.020] found game window owner pid=2416 - retrying attach by pid
+[21:22:24.020] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:26.037] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:26.038] found game window owner pid=2416 - retrying attach by pid
+[21:22:26.038] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:28.074] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:28.076] found game window owner pid=2416 - retrying attach by pid
+[21:22:28.076] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:30.094] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:30.095] found game window owner pid=2416 - retrying attach by pid
+[21:22:30.095] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:32.112] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:32.112] found game window owner pid=2416 - retrying attach by pid
+[21:22:32.112] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:34.142] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:34.142] found game window owner pid=2416 - retrying attach by pid
+[21:22:34.142] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:36.160] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:36.161] found game window owner pid=2416 - retrying attach by pid
+[21:22:36.161] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:38.175] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:38.175] found game window owner pid=2416 - retrying attach by pid
+[21:22:38.176] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:40.195] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:40.197] found game window owner pid=2416 - retrying attach by pid
+[21:22:40.197] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:42.200] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:42.200] found game window owner pid=2416 - retrying attach by pid
+[21:22:42.201] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:44.235] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:44.236] found game window owner pid=2416 - retrying attach by pid
+[21:22:44.236] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:46.273] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:46.275] found game window owner pid=2416 - retrying attach by pid
+[21:22:46.275] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:48.282] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:48.282] found game window owner pid=2416 - retrying attach by pid
+[21:22:48.282] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:50.315] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:50.316] found game window owner pid=2416 - retrying attach by pid
+[21:22:50.316] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:52.343] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:52.344] found game window owner pid=2416 - retrying attach by pid
+[21:22:52.344] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:54.369] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:54.369] found game window owner pid=2416 - retrying attach by pid
+[21:22:54.370] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:56.393] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:56.394] found game window owner pid=2416 - retrying attach by pid
+[21:22:56.394] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:22:58.428] attach via name failed: process not found (Toolhelp snapshot)
+[21:22:58.429] found game window owner pid=2416 - retrying attach by pid
+[21:22:58.429] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:00.467] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:00.468] found game window owner pid=2416 - retrying attach by pid
+[21:23:00.468] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:02.499] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:02.499] found game window owner pid=2416 - retrying attach by pid
+[21:23:02.500] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:04.526] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:04.526] found game window owner pid=2416 - retrying attach by pid
+[21:23:04.526] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:06.541] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:06.542] found game window owner pid=2416 - retrying attach by pid
+[21:23:06.542] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:08.557] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:08.558] found game window owner pid=2416 - retrying attach by pid
+[21:23:08.558] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:10.573] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:10.574] found game window owner pid=2416 - retrying attach by pid
+[21:23:10.574] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:12.608] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:12.608] found game window owner pid=2416 - retrying attach by pid
+[21:23:12.609] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:14.620] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:14.620] found game window owner pid=2416 - retrying attach by pid
+[21:23:14.620] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:16.640] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:16.641] found game window owner pid=2416 - retrying attach by pid
+[21:23:16.641] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:18.648] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:18.649] found game window owner pid=2416 - retrying attach by pid
+[21:23:18.649] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:20.672] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:20.673] found game window owner pid=2416 - retrying attach by pid
+[21:23:20.673] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:22.696] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:22.697] found game window owner pid=2416 - retrying attach by pid
+[21:23:22.697] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:24.718] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:24.718] found game window owner pid=2416 - retrying attach by pid
+[21:23:24.718] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:26.745] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:26.745] found game window owner pid=2416 - retrying attach by pid
+[21:23:26.746] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:28.771] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:28.772] found game window owner pid=2416 - retrying attach by pid
+[21:23:28.772] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:30.809] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:30.809] found game window owner pid=2416 - retrying attach by pid
+[21:23:30.809] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:32.819] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:32.819] found game window owner pid=2416 - retrying attach by pid
+[21:23:32.820] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:34.830] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:34.831] found game window owner pid=2416 - retrying attach by pid
+[21:23:34.831] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:36.869] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:36.869] found game window owner pid=2416 - retrying attach by pid
+[21:23:36.869] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:38.895] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:38.895] found game window owner pid=2416 - retrying attach by pid
+[21:23:38.895] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:40.921] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:40.922] found game window owner pid=2416 - retrying attach by pid
+[21:23:40.922] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:42.951] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:42.952] found game window owner pid=2416 - retrying attach by pid
+[21:23:42.952] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:44.973] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:44.974] found game window owner pid=2416 - retrying attach by pid
+[21:23:44.974] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:46.999] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:47.000] found game window owner pid=2416 - retrying attach by pid
+[21:23:47.000] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:49.016] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:49.017] found game window owner pid=2416 - retrying attach by pid
+[21:23:49.017] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:51.046] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:51.047] found game window owner pid=2416 - retrying attach by pid
+[21:23:51.047] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:53.064] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:53.065] found game window owner pid=2416 - retrying attach by pid
+[21:23:53.065] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:55.086] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:55.086] found game window owner pid=2416 - retrying attach by pid
+[21:23:55.086] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:57.096] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:57.097] found game window owner pid=2416 - retrying attach by pid
+[21:23:57.097] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:23:59.113] attach via name failed: process not found (Toolhelp snapshot)
+[21:23:59.114] found game window owner pid=2416 - retrying attach by pid
+[21:23:59.114] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:01.129] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:01.129] found game window owner pid=2416 - retrying attach by pid
+[21:24:01.129] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:03.141] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:03.142] found game window owner pid=2416 - retrying attach by pid
+[21:24:03.142] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:05.154] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:05.155] found game window owner pid=2416 - retrying attach by pid
+[21:24:05.156] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:07.167] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:07.168] found game window owner pid=2416 - retrying attach by pid
+[21:24:07.168] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:09.197] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:09.198] found game window owner pid=2416 - retrying attach by pid
+[21:24:09.199] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:11.222] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:11.223] found game window owner pid=2416 - retrying attach by pid
+[21:24:11.223] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:13.245] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:13.246] found game window owner pid=2416 - retrying attach by pid
+[21:24:13.246] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:15.262] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:15.264] found game window owner pid=2416 - retrying attach by pid
+[21:24:15.264] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:17.280] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:17.280] found game window owner pid=2416 - retrying attach by pid
+[21:24:17.280] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:19.302] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:19.302] found game window owner pid=2416 - retrying attach by pid
+[21:24:19.302] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:21.342] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:21.342] found game window owner pid=2416 - retrying attach by pid
+[21:24:21.343] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:23.366] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:23.366] found game window owner pid=2416 - retrying attach by pid
+[21:24:23.367] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:25.384] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:25.385] found game window owner pid=2416 - retrying attach by pid
+[21:24:25.385] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:27.406] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:27.406] found game window owner pid=2416 - retrying attach by pid
+[21:24:27.407] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:29.431] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:29.432] found game window owner pid=2416 - retrying attach by pid
+[21:24:29.432] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:31.466] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:31.466] found game window owner pid=2416 - retrying attach by pid
+[21:24:31.466] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:33.485] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:33.485] found game window owner pid=2416 - retrying attach by pid
+[21:24:33.485] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:35.510] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:35.511] found game window owner pid=2416 - retrying attach by pid
+[21:24:35.511] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:37.539] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:37.539] found game window owner pid=2416 - retrying attach by pid
+[21:24:37.539] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:39.558] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:39.558] found game window owner pid=2416 - retrying attach by pid
+[21:24:39.558] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:41.586] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:41.587] found game window owner pid=2416 - retrying attach by pid
+[21:24:41.587] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:43.597] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:43.598] found game window owner pid=2416 - retrying attach by pid
+[21:24:43.598] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:45.619] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:45.620] found game window owner pid=2416 - retrying attach by pid
+[21:24:45.620] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:47.643] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:47.643] found game window owner pid=2416 - retrying attach by pid
+[21:24:47.643] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:49.658] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:49.658] found game window owner pid=2416 - retrying attach by pid
+[21:24:49.658] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:51.689] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:51.690] found game window owner pid=2416 - retrying attach by pid
+[21:24:51.691] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:53.703] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:53.704] found game window owner pid=2416 - retrying attach by pid
+[21:24:53.704] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:55.728] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:55.729] found game window owner pid=2416 - retrying attach by pid
+[21:24:55.729] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:57.756] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:57.757] found game window owner pid=2416 - retrying attach by pid
+[21:24:57.757] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:24:59.762] attach via name failed: process not found (Toolhelp snapshot)
+[21:24:59.763] found game window owner pid=2416 - retrying attach by pid
+[21:24:59.763] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:01.793] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:01.796] found game window owner pid=2416 - retrying attach by pid
+[21:25:01.796] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:03.821] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:03.822] found game window owner pid=2416 - retrying attach by pid
+[21:25:03.822] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:05.823] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:05.825] found game window owner pid=2416 - retrying attach by pid
+[21:25:05.825] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:07.863] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:07.863] found game window owner pid=2416 - retrying attach by pid
+[21:25:07.864] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:09.898] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:09.899] found game window owner pid=2416 - retrying attach by pid
+[21:25:09.899] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:11.905] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:11.905] found game window owner pid=2416 - retrying attach by pid
+[21:25:11.905] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:13.927] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:13.928] found game window owner pid=2416 - retrying attach by pid
+[21:25:13.928] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:15.951] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:15.951] found game window owner pid=2416 - retrying attach by pid
+[21:25:15.951] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:17.969] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:17.970] found game window owner pid=2416 - retrying attach by pid
+[21:25:17.970] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:19.998] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:19.999] found game window owner pid=2416 - retrying attach by pid
+[21:25:19.999] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:22.032] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:22.033] found game window owner pid=2416 - retrying attach by pid
+[21:25:22.033] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:24.046] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:24.047] found game window owner pid=2416 - retrying attach by pid
+[21:25:24.047] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:26.055] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:26.056] found game window owner pid=2416 - retrying attach by pid
+[21:25:26.056] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:28.087] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:28.088] found game window owner pid=2416 - retrying attach by pid
+[21:25:28.088] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:30.102] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:30.102] found game window owner pid=2416 - retrying attach by pid
+[21:25:30.103] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:32.128] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:32.129] found game window owner pid=2416 - retrying attach by pid
+[21:25:32.129] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:34.155] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:34.156] found game window owner pid=2416 - retrying attach by pid
+[21:25:34.156] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:36.160] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:36.161] found game window owner pid=2416 - retrying attach by pid
+[21:25:36.161] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:38.191] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:38.191] found game window owner pid=2416 - retrying attach by pid
+[21:25:38.191] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:40.204] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:40.204] found game window owner pid=2416 - retrying attach by pid
+[21:25:40.205] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:42.228] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:42.229] found game window owner pid=2416 - retrying attach by pid
+[21:25:42.229] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:44.242] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:44.242] found game window owner pid=2416 - retrying attach by pid
+[21:25:44.242] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:46.268] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:46.270] found game window owner pid=2416 - retrying attach by pid
+[21:25:46.270] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:48.303] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:48.305] found game window owner pid=2416 - retrying attach by pid
+[21:25:48.305] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:50.339] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:50.340] found game window owner pid=2416 - retrying attach by pid
+[21:25:50.341] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:52.364] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:52.365] found game window owner pid=2416 - retrying attach by pid
+[21:25:52.365] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:54.397] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:54.397] found game window owner pid=2416 - retrying attach by pid
+[21:25:54.398] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:56.427] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:56.428] found game window owner pid=2416 - retrying attach by pid
+[21:25:56.428] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:25:58.456] attach via name failed: process not found (Toolhelp snapshot)
+[21:25:58.457] found game window owner pid=2416 - retrying attach by pid
+[21:25:58.457] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:26:00.481] attach via name failed: process not found (Toolhelp snapshot)
+[21:26:00.482] found game window owner pid=2416 - retrying attach by pid
+[21:26:00.482] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:26:02.525] attach via name failed: process not found (Toolhelp snapshot)
+[21:26:02.525] found game window owner pid=2416 - retrying attach by pid
+[21:26:02.526] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:26:04.544] attach via name failed: process not found (Toolhelp snapshot)
+[21:26:04.545] found game window owner pid=2416 - retrying attach by pid
+[21:26:04.545] attach via window pid failed: OpenProcess(VM_READ) denied (error 5: Acesso negado.
+)
+[21:27:49.356] === cs2ext start === build 14195  attached=1 pid=2416
+[21:27:49.357] surface resolved mode=inherited hwnd=00000000000503D6 size=2560x1440 layered=no transparent=no
+[21:27:49.408] swapchain FAILED  effect=FLIP_DISCARD  hwnd=00000000000503D6
+[21:27:49.432] swapchain ok  effect=DISCARD  hwnd=00000000000503D6  2560x1440  layered=no
+[21:27:49.432] InitD3D ok  swap=00000000005B2910 rtv=00000000005730F8 mode=inherited
+[21:27:49.449] present #1 hr=0x00000000 windowed=2560x1440 rtv=00000000005730F8
+[21:27:49.457] present #2 hr=0x00000000 windowed=2560x1440 rtv=00000000005730F8
+[21:27:49.472] present #3 hr=0x00000000 windowed=2560x1440 rtv=00000000005730F8
+[21:28:36.609] === cs2ext start === build 14195  attached=1 pid=2416
+[21:28:36.609] surface resolved mode=inherited hwnd=00000000000503D6 size=2560x1440 layered=no transparent=no
+[21:28:36.667] swapchain FAILED  effect=FLIP_DISCARD  hwnd=00000000000503D6
+[21:28:36.694] swapchain ok  effect=DISCARD  hwnd=00000000000503D6  2560x1440  layered=no
+[21:28:36.694] InitD3D ok  swap=00000000004E3020 rtv=00000000004CB0F8 mode=inherited
+[21:28:36.709] present #1 hr=0x00000000 windowed=2560x1440 rtv=00000000004CB0F8
+[21:28:36.718] present #2 hr=0x00000000 windowed=2560x1440 rtv=00000000004CB0F8
+[21:28:36.732] present #3 hr=0x00000000 windowed=2560x1440 rtv=00000000004CB0F8
+[21:29:41.433] === cs2ext start === build 14195  attached=1 pid=2416
+[21:29:41.434] surface resolved mode=inherited hwnd=00000000000503D6 size=2560x1440 layered=no transparent=no
+[21:29:41.487] swapchain FAILED  effect=FLIP_DISCARD  hwnd=00000000000503D6
+[21:29:41.510] swapchain ok  effect=DISCARD  hwnd=00000000000503D6  2560x1440  layered=no
+[21:29:41.510] InitD3D ok  swap=00000000005761B0 rtv=0000000000535C38 mode=inherited
+[21:29:41.527] present #1 hr=0x00000000 windowed=2560x1440 rtv=0000000000535C38
+[21:29:41.533] present #2 hr=0x00000000 windowed=2560x1440 rtv=0000000000535C38
+[21:29:41.548] present #3 hr=0x00000000 windowed=2560x1440 rtv=0000000000535C38
+[21:30:12.713] === cs2ext start === build 14195  attached=1 pid=2416
+[21:30:12.713] surface resolved mode=inherited hwnd=00000000000503D6 size=2560x1440 layered=no transparent=no
+[21:30:12.765] swapchain FAILED  effect=FLIP_DISCARD  hwnd=00000000000503D6
+[21:30:12.792] swapchain ok  effect=DISCARD  hwnd=00000000000503D6  2560x1440  layered=no
+[21:30:12.792] InitD3D ok  swap=0000000000687200 rtv=0000000000635938 mode=inherited
+[21:30:12.804] present #1 hr=0x00000000 windowed=2560x1440 rtv=0000000000635938
+[21:30:12.818] present #2 hr=0x00000000 windowed=2560x1440 rtv=0000000000635938
+[21:30:12.832] present #3 hr=0x00000000 windowed=2560x1440 rtv=0000000000635938
