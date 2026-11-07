@@ -2,31 +2,33 @@
 <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
   <assemblyIdentity
       type="win32"
-      name="cs2ext.overlay"
+      name="muei.overlay"
       version="1.0.0.0"
       processorArchitecture="amd64"/>
+
   <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
     <security>
       <requestedPrivileges>
         <!--
           The overlay must run at the same integrity level as the game.
-          CS2 runs elevated (High IL); a non-elevated overlay gets
+          CS2 runs elevated (High IL). A non-elevated overlay gets
           ERROR_ACCESS_DENIED on every PROCESS_VM_* right, which is exactly
-          what the log showed: QUERY_LIMITED succeeds, VM_READ is denied.
-          Requesting elevation in the manifest makes Windows run this exe
-          elevated automatically, so both sides match without the user
-          remembering to right-click Run as administrator.
+          what the log shows: QUERY_LIMITED succeeds, VM_READ is denied.
+          Requesting elevation here makes Windows run muei.exe elevated
+          automatically instead of relying on a right-click.
         -->
         <requestedExecutionLevel level="requireAdministrator" uiAccess="false"/>
       </requestedPrivileges>
     </security>
   </trustInfo>
+
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
     <application>
       <!-- Windows 10 / 11 -->
       <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}"/>
     </application>
   </compatibility>
+
   <application xmlns="urn:schemas-microsoft-com:asm.v3">
     <windowsSettings>
       <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitorV2</dpiAwareness>
@@ -34,6 +36,7 @@
       <activeCodePage xmlns="http://schemas.microsoft.com/SMI/2019/WindowsSettings">UTF-8</activeCodePage>
     </windowsSettings>
   </application>
+
   <dependency>
     <dependentAssembly>
       <assemblyIdentity
