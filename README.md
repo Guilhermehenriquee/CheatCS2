@@ -43,6 +43,23 @@ and the log reads `OpenProcess(VM_READ) denied (error 5)`.
 `build_mingw.bat` builds the same sources with MinGW-w64. That path has no
 manifest embed, so run it from an elevated shell.
 
+## Elevation
+
+CS2 runs at High integrity; a Medium-integrity overlay gets `ERROR_ACCESS_DENIED`
+on every `PROCESS_VM_READ`, which looks like "the menu works but shows no
+players".
+
+Two defences:
+
+- `app.manifest` requests `requireAdministrator`, so the **MSVC** build always
+  starts elevated.
+- The binary also checks its own token at startup. If it is not elevated it
+  re-launches itself through the shell `runas` verb and exits, so a plain
+  double-click on the MinGW build still ends up elevated after one UAC prompt.
+  `--no-elevate` skips that check, for shells that are already elevated.
+- If elevation is declined the overlay still runs, the menu pill reads
+  `admin required` instead of a neutral `waiting`, and the log says why.
+
 ## Run
 
 1. Start CS2 in **Fullscreen Windowed**.

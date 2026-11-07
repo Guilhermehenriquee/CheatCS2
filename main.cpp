@@ -10,12 +10,15 @@
 //   features/  one file per cheat feature
 //   ui/        theme, D3D11 surface, menu
 #include <windows.h>
+#include <shellapi.h>
 
 #include <cmath>
 #include <cstdio>
 #include <cwchar>
 #include <memory>
 #include <string>
+
+#pragma comment(lib, "shell32.lib")
 
 #include "core/Config.h"
 #include "core/Log.h"
@@ -82,6 +85,51 @@ bool     g_dirty      = false;
 uint64_t g_dirtyAt    = 0;
 
 uint32_t g_tick = 0;
+bool     g_elevated = false;
+
+// --------------------------------------------------------------- elevation ---
+// CS2 runs at High integrity. A process at Medium cannot open it for read no
+// matter what rights it asks for, and the resulting failure ("error 5") looks
+// exactly like a broken cheat: the menu renders, the ESP is empty.
+//
+// The MSVC build embeds a requireAdministrator manifest, so it never reaches
+// this path. The MinGW build cannot embed one here, and a double-clicked exe
+// gets no elevation - so re-launch ourselves through the shell's runas verb and
+// exit. If the operator declines the UAC prompt we keep running, but say so
+// loudly in the log and in the menu instead of pretending to be waiting.
+bool isElevated() {
+    HANDLE token = nullptr;
+    if (!OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &token)) return false;
+
+    TOKEN_ELEVATION elevation{};
+    DWORD size = sizeof(elevation);
+    const bool ok = GetTokenInformation(token, TokenElevation, &elevation,
+                                        sizeof(elevation), &size) &&
+                    elevation.TokenIsElevated != 0;
+    CloseHandle(token);
+    return ok;
+}
+
+bool relaunchElevated() {
+    wchar_t exe[MAX_PATH]{};
+    if (!GetModuleFileNameW(nullptr, exe, MAX_PATH)) return false;
+
+    SHELLEXECUTEINFOW sei{};
+    sei.cbSize       = sizeof(sei);
+    sei.fMask        = SEE_MASK_NOCLOSEPROCESS;
+    sei.lpVerb       = L"runas";
+    sei.lpFile       = exe;
+    sei.lpParameters = nullptr;   // the overlay takes no arguments
+    sei.nShow        = SW_SHOWNORMAL;
+
+    if (!ShellExecuteExW(&sei)) {
+        // ERROR_CANCELLED is the usual one: the operator clicked No on UAC.
+        logx::win32("elevation request failed", GetLastError());
+        return false;
+    }
+    if (sei.hProcess) CloseHandle(sei.hProcess);
+    return true;
+}
 
 // -------------------------------------------------------------- config path --
 std::wstring exeDirFile(const wchar_t* name) {
@@ -287,6 +335,7 @@ void flushDirtyConfig() {
 menu::Status buildStatus() {
     menu::Status st;
     st.attached  = g_attached;
+    st.elevated  = g_elevated;
     st.backend   = g_mem ? (g_mem == &g_kernel ? "kernel"
                             : g_mem == &g_dma ? "dma" : "user")
                          : "none";
@@ -312,6 +361,24 @@ void drawMenuIfOpen(bool& cfgChanged) {
 int WINAPI wWinMain(HINSTANCE, HINSTANCE, PWSTR, int) {
     SetProcessDPIAware();
     logx::init("muei");
+
+    // --------------------------------------------------------- elevation ----
+    // --no-elevate exists for two real cases: launching from a shell that is
+    // already elevated (a second UAC prompt would be redundant), and debugging
+    // the overlay deliberately at Medium integrity.
+    const bool noElevate = wcsstr(GetCommandLineW(), L"--no-elevate") != nullptr;
+
+    if (!noElevate && !isElevated()) {
+        logx::line("running at Medium integrity; CS2 runs at High - re-launching elevated");
+
+        if (relaunchElevated()) {
+            logx::line("elevated instance started, this one exits");
+            return 0;
+        }
+        logx::line("elevation declined or unavailable - memory access will be refused");
+    }
+    g_elevated = isElevated();
+    logx::line("integrity: %s", g_elevated ? "elevated" : "NOT elevated");
 
     // ------------------------------------------------------------- data ----
     g_cfg.load();

@@ -426,15 +426,38 @@ void iconGear(ImDrawList* d, ImVec2 c, ImU32 col) {
 }
 
 // ----------------------------------------------------------------- toolbar ---
-void attachPill(ImDrawList* d, ImVec2 p, bool attached) {
-    const ImU32 dot = attached ? theme::col::good() : theme::col::bad();
-    const char* text = attached ? "attached" : "waiting";
-    const float w = 104.f;
+// The pill is the one place that has to tell the truth about *why* nothing is
+// happening. "waiting" when the real cause is a refused elevation is the most
+// expensive lie the UI can tell: the menu looks healthy and the game shows
+// nothing.
+void attachPill(ImDrawList* d, ImVec2 p, const Status& status) {
+    const char* text;
+    ImU32 dot;
+
+    if (status.attached) {
+        text = "attached";
+        dot  = theme::col::good();
+    } else if (!status.elevated) {
+        text = "admin required";
+        dot  = theme::col::warn();
+    } else {
+        text = "waiting";
+        dot  = theme::col::bad();
+    }
+
+    const float tw = TxtW(text, T_CTRL, theme::fontBody());
+    const float w  = 26.f + tw + 12.f;
 
     d->AddRectFilled(p, p + ImVec2(w, 28.f), theme::col::pill(), 8.f);
     d->AddRect(p, p + ImVec2(w, 28.f), theme::col::pillBorder(), 8.f);
     d->AddCircleFilled(p + ImVec2(14.f, 14.f), 3.6f, dot);
     TxtY(d, p.x + 26.f, p.y, 28.f, theme::col::value(), text, T_CTRL, theme::fontBody());
+}
+
+float attachPillWidth(const Status& status) {
+    const char* text = status.attached ? "attached"
+                     : (!status.elevated ? "admin required" : "waiting");
+    return 26.f + TxtW(text, T_CTRL, theme::fontBody()) + 12.f;
 }
 
 // ----------------------------------------------------------------- the shell -
@@ -517,12 +540,12 @@ void toolbar(ImDrawList* d, ImVec2 b, const Status& status) {
     d->AddLine(b + ImVec2(kSidebarW, kToolbarH), b + ImVec2(kShellW, kToolbarH),
                theme::col::divider());
 
-    attachPill(d, b + ImVec2(kSidebarW + 16.f, 14.f), status.attached);
+    attachPill(d, b + ImVec2(kSidebarW + 16.f, 14.f), status);
 
     char players[48];
     std::snprintf(players, sizeof(players), "%d players", status.players);
-    TxtY(d, b.x + kSidebarW + 134.f, b.y + 14.f, 28.f, theme::col::caption(), players,
-         T_SMALL, theme::fontSmall());
+    TxtY(d, b.x + kSidebarW + 28.f + attachPillWidth(status), b.y + 14.f, 28.f,
+         theme::col::caption(), players, T_SMALL, theme::fontSmall());
 
     // Build tag, right aligned.
     char build[48];
@@ -674,8 +697,10 @@ void pageVisuals(ImDrawList* d, ImVec2 b, Config& cfg, bool& changed) {
     changed |= RowColor(d, x0, yG + 74.f, CW, "g.en", "Enemy glow", cfg.glowEnemy, false);
     changed |= RowColor(d, x0, yG + 111.f, CW, "g.tm", "Team glow", cfg.glowTeam, false);
 
-    // Aligned with the GLOW card so both columns close on the same baseline.
-    previewCard(d, ImVec2(xr, yG), CR, 4.f * kRowH, cfg);
+    // Aligned with the GLOW card so both columns close on similar baselines.
+    // The caption sits 16px above the card, so the gap to the card above has to
+    // be at least that or the labels collide.
+    previewCard(d, ImVec2(xr, yG + 26.f), CR, 4.f * kRowH, cfg);
 }
 
 void pageMisc(ImDrawList* d, ImVec2 b, Config& cfg, const Status& status, bool& changed) {

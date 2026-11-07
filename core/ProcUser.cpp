@@ -11,6 +11,24 @@ void ProcUser::setError(const wchar_t* what, DWORD code) {
     logx::wide("ProcUser", lastError_);
 }
 
+namespace {
+
+// Compare an image name from the snapshot against the requested name, ignoring
+// the extension on either side. "cs2" and "cs2.exe" are the same process.
+bool stemEq(const wchar_t* a, const wchar_t* b) {
+    auto stem = [](const wchar_t* s, std::wstring& out) {
+        out.assign(s);
+        const size_t dot = out.find_last_of(L'.');
+        if (dot != std::wstring::npos && dot > 0) out.erase(dot);
+    };
+    std::wstring sa, sb;
+    stem(a, sa);
+    stem(b, sb);
+    return !sa.empty() && !sb.empty() && !_wcsicmp(sa.c_str(), sb.c_str());
+}
+
+} // namespace
+
 DWORD ProcUser::findPid(const wchar_t* exeName) {
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (snap == INVALID_HANDLE_VALUE) return 0;
@@ -20,7 +38,9 @@ DWORD ProcUser::findPid(const wchar_t* exeName) {
     DWORD found = 0;
     if (Process32FirstW(snap, &pe)) {
         do {
-            if (!_wcsicmp(pe.szExeFile, exeName)) {
+            // Match "cs2.exe" against either the full image name or the stem:
+            // some launchers report the image without the extension.
+            if (!_wcsicmp(pe.szExeFile, exeName) || stemEq(pe.szExeFile, exeName)) {
                 found = pe.th32ProcessID;
                 break;
             }
@@ -85,7 +105,15 @@ bool ProcUser::attachPid(DWORD targetPid) {
     read_ = OpenProcess(PROCESS_VM_READ | PROCESS_QUERY_LIMITED_INFORMATION,
                         FALSE, targetPid);
     if (!read_) {
-        setError(L"OpenProcess(VM_READ) denied", GetLastError());
+        const DWORD err = GetLastError();
+        if (err == ERROR_ACCESS_DENIED) {
+            // The single most common dead end. Say what it means, not just the code.
+            lastError_ = L"OpenProcess(VM_READ) denied: the game runs at a higher "
+                         L"integrity level. Run muei as administrator.";
+            logx::wide("ProcUser", lastError_);
+            return false;
+        }
+        setError(L"OpenProcess(VM_READ) denied", err);
         return false;
     }
 

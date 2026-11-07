@@ -26,6 +26,7 @@ enum Tab {
 // Live state the footer reports. Filled by main each frame.
 struct Status {
     bool        attached   = false;
+    bool        elevated   = false;
     const char* backend    = "none";
     unsigned long pid      = 0;
     int         players    = 0;

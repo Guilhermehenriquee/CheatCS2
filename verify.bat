@@ -46,7 +46,7 @@ echo [MinGW] building verify.exe
 g++ -std=c++20 -O2 -DNDEBUG -Wall -Wno-unknown-pragmas -static -static-libgcc -static-libstdc++ ^
     -I. -Iimgui -Iimgui\backends -Ivendor ^
     verify.cpp core\Log.cpp core\ProcUser.cpp sdk\Offsets.cpp sdk\Nav.cpp ^
-    -o verify.exe -luser32 -lpsapi -lshlwapi
+    -o verify.exe -luser32 -lpsapi -lshlwapi -lshell32
 if errorlevel 1 (
     echo [FAIL] build
     exit /b 1

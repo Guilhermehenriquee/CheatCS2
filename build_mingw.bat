@@ -56,7 +56,7 @@ for %%f in (obj-mingw\*.o) do set "OBJS=!OBJS! obj-mingw\%%~nxf"
 
 g++ -mwindows -municode -static -static-libgcc -static-libstdc++ -o muei.exe !OBJS! ^
     -ld3d11 -ldxgi -ldxguid -ld3dcompiler -ldwmapi ^
-    -luser32 -lgdi32 -lpsapi -lshlwapi -lole32 -luuid
+    -luser32 -lgdi32 -lpsapi -lshlwapi -lole32 -luuid -lshell32
 if errorlevel 1 (
     echo [FAIL] link
     exit /b 1
