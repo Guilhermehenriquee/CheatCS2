@@ -1,0 +1,61 @@
+# muei 無影 — pacote pronto
+
+Extraia esta pasta em qualquer lugar e rode. Nada precisa ser instalado.
+
+## Rodar
+
+1. Abra o CS2 e **entre numa partida** (não no menu principal).
+2. **Botão direito em `run.bat` → Executar como administrador**
+
+   Ou: duplo clique em `muei.exe` e aceite o UAC.
+
+3. `Insert` abre o menu · `End` encerra.
+
+O pill no canto superior esquerdo do menu diz tudo:
+
+| pill | significa |
+|---|---|
+| `attached` (verde) | lendo a memória do jogo — ESP funciona |
+| `admin required` (âmbar) | elevou não. Feche e rode como administrador |
+| `waiting` (vermelho) | elevado, mas não achou o processo — entre numa partida |
+
+## Se não funcionar
+
+Abra `muei_log.txt` na mesma pasta. Ele diz o motivo exato de cada backend ter falhado. As três causas comuns:
+
+- **`VM_READ denied` / `admin required`** — não está elevado.
+- **`0 players` com `attached` verde** — você está no menu do jogo, ou o mapa não tem inimigos vivos.
+- **Overlay não aparece sobre o jogo** — o CS está em Fullscreen exclusivo. Use **Fullscreen Windowed**.
+
+## Verificar os offsets
+
+Com CS2 aberto, numa partida, rodando como administrador:
+
+```
+verify.bat
+```
+
+Imprime PASS/FAIL campo por campo. Se algum falhar depois de uma atualização do jogo, edite `offsets.cfg` (copie de `offsets.cfg.example`) e reinicie — sem recompilar.
+
+## Arquivos
+
+```
+muei.exe              overlay (estático, 4.2 MB, sem dependências)
+verify.exe            verificador de offsets
+run.bat               atalho: eleva, verifica, abre
+verify.bat            roda só o verificador
+build.bat             recompila com MSVC
+build_mingw.bat       recompila com MinGW (não precisa do VS)
+offsets.cfg.example   todos os campos, para sobrescrever sem rebuild
+muei.cfg              criado no primeiro run (suas configurações)
+muei_log.txt          criado no primeiro run (diagnóstico)
+```
+
+Fontes completos em `core/ sdk/ features/ ui/ imgui/ vendor/`. Veja `README.md`.
+
+## Compilar do zero
+
+Só se for mexer no código.
+
+- **MSVC** (Visual Studio Build Tools): `build.bat` → sai com manifest embutido, sempre elevado.
+- **MinGW-w64** (sem Visual Studio): `build_mingw.bat`. Precisa de um `g++` no PATH, ou ajuste `MINGW=` no topo do script.
