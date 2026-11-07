@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------------------
+# Build output
+# ---------------------------------------------------------------------------
+obj/
+obj-mingw/
+*.obj
+*.o
+*.exe
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.dll
+
+# ---------------------------------------------------------------------------
+# Runtime state (never commit)
+# ---------------------------------------------------------------------------
+muei.cfg
+muei.cfg.bad
+muei_log.txt
+verify_log.txt
+main_log.txt
+offsets.cfg
+cs2-dumper.log
+dumper.log
+
+# ---------------------------------------------------------------------------
+# Reference material and scratch
+# ---------------------------------------------------------------------------
+_ref/
+_ui_ref/
+_dump/
+_probe/
+_shot_*.png
+_crop_*.png
+*.tmp
+
+# ---------------------------------------------------------------------------
+# The flat-header layout was replaced by the structured tree.
+# These were the old build's sources; kept locally, not in the tree.
+# ---------------------------------------------------------------------------
+main_old_*.exe
