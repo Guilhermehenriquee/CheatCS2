@@ -96,13 +96,27 @@ uintptr_t Nav::boneArray(uintptr_t ent) const {
     uintptr_t node = mem_.rd<uintptr_t>(ent + g_off.m_pGameSceneNode);
     if (!IMemory::plausible(node)) return 0;
 
-    // m_pBoneArray is a pointer inside CModelState, which is inline in the
-    // skeleton instance.
-    uintptr_t arr = mem_.rd<uintptr_t>(node + g_off.m_modelState + g_off.m_pBoneArray);
-    if (!IMemory::plausible(arr)) {
-        // Fall back to treating it as an inline array.
-        arr = node + g_off.m_modelState + g_off.m_pBoneArray;
-    }
+    // The bone array is INLINE in CModelState, not a pointer: CSkeletonInstance
+    // sits at m_pGameSceneNode and CModelState at +m_modelState, and the array of
+    // CTransform starts at +m_pBoneArray inside it.
+    //
+    // Reading it as a pointer was a real bug: the first CTransform's quaternion
+    // components are small floats, and a float bit pattern like 0x3F800000
+    // (1.0f) passes any "is this a plausible address" test, so the old code
+    // would happily treat a quaternion as an address and read bones out of
+    // nowhere. Validity is decided by the first transform looking like a
+    // rotation instead.
+    const uintptr_t arr = node + g_off.m_modelState + g_off.m_pBoneArray;
+
+    Transform first = mem_.rd<Transform>(arr);
+    if (!std::isfinite(first.qw) || !std::isfinite(first.x)) return 0;
+
+    // A unit quaternion has |q| ~= 1. Anything wildly off means this is not the
+    // bone array and the caller should fall back to the estimated box.
+    const float qlen = std::sqrt(first.qx * first.qx + first.qy * first.qy +
+                                 first.qz * first.qz + first.qw * first.qw);
+    if (!(qlen > 0.5f && qlen < 1.5f)) return 0;
+
     return arr;
 }
 

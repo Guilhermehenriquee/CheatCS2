@@ -89,7 +89,6 @@ bool Config::save() const {
     j["triggerHoldMs"]    = triggerHoldMs;
     j["triggerTeamFlag"]  = triggerTeamFlag;
     j["triggerHeadOnly"]  = triggerHeadOnly;
-    j["triggerUseDriver"] = triggerUseDriver;
 
     j["aimbot"]         = aimbot;
     j["aimVisibleOnly"] = aimVisibleOnly;
@@ -101,7 +100,6 @@ bool Config::save() const {
     j["aimAutoFire"]    = aimAutoFire;
     j["aimMaxDist"]     = aimMaxDist;
     j["aimSens"]        = aimSens;
-    j["aimUseDriver"]   = aimUseDriver;
 
     j["resolverOn"]          = resolverOn;
     j["resolverMode"]        = (int)resolverMode;
@@ -130,7 +128,6 @@ bool Config::save() const {
     j["noFlash"]   = noFlash;
     j["menuKey"]   = menuKey;
     j["panicKey"]  = panicKey;
-    j["backend"]   = backend;
     j["accentCol"] = col(accentCol);
 
     std::wstring path = defaultPath();
@@ -194,7 +191,6 @@ bool Config::load() {
     get(j, "triggerHoldMs", triggerHoldMs);
     get(j, "triggerTeamFlag", triggerTeamFlag);
     get(j, "triggerHeadOnly", triggerHeadOnly);
-    get(j, "triggerUseDriver", triggerUseDriver);
 
     get(j, "aimbot", aimbot);
     get(j, "aimVisibleOnly", aimVisibleOnly);
@@ -206,7 +202,6 @@ bool Config::load() {
     get(j, "aimAutoFire", aimAutoFire);
     get(j, "aimMaxDist", aimMaxDist);
     get(j, "aimSens", aimSens);
-    get(j, "aimUseDriver", aimUseDriver);
 
     get(j, "resolverOn", resolverOn);
     { int v = (int)resolverMode; get(j, "resolverMode", v); resolverMode = (ResolveMode)v; }
@@ -235,7 +230,6 @@ bool Config::load() {
     get(j, "noFlash", noFlash);
     get(j, "menuKey", menuKey);
     get(j, "panicKey", panicKey);
-    get(j, "backend", backend);
     readCol(j, "accentCol", accentCol);
 
     // Clamp anything a hand-edited file could push out of range.
@@ -253,9 +247,8 @@ bool Config::load() {
     if (triggerHoldMs < 1) triggerHoldMs = 1;
     if (menuKey <= 0 || menuKey > 0xFF) menuKey = VK_INSERT;
     if (panicKey <= 0 || panicKey > 0xFF) panicKey = VK_END;
-    if (backend < 0 || backend > 3) backend = (int)Backend::Auto;
     if (glowType < 0) glowType = 0;
 
-    logx::line("config loaded (version %d, backend %d)", version, backend);
+    logx::line("config loaded (version %d)", version);
     return true;
 }

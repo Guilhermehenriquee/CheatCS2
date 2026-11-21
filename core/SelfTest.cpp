@@ -9,29 +9,44 @@
 // supplies a value.
 //
 // Exit code: 0 when every checked field passed, 1 when anything failed.
+#include "SelfTest.h"
+
 #include <windows.h>
 
 #include <cmath>
+#include <cstdarg>
 #include <cstdio>
 #include <string>
 #include <vector>
 
-#include "core/Log.h"
-#include "core/ProcUser.h"
+#include "Log.h"
+#include "ProcUser.h"
 
-#include "sdk/Entity.h"
-#include "sdk/Math.h"
-#include "sdk/Nav.h"
-#include "sdk/Offsets.h"
+#include "../sdk/Entity.h"
+#include "../sdk/Math.h"
+#include "../sdk/Nav.h"
+#include "../sdk/Offsets.h"
 
 namespace {
 
-int g_pass = 0;
-int g_fail = 0;
-int g_skip = 0;
+int   g_pass = 0;
+int   g_fail = 0;
+int   g_skip = 0;
+FILE* g_out  = nullptr;
+
+// Report line: the file is the destination that matters, stdout is a bonus for
+// anyone running this from a terminal.
+void emit(const char* fmt, ...) {
+    char buf[1024];
+    va_list ap;
+    va_start(ap, fmt);
+    vsnprintf(buf, sizeof(buf), fmt, ap);
+    va_end(ap);
+    if (g_out) { fputs(buf, g_out); fputc('\n', g_out); fflush(g_out); }
+}
 
 void row(const char* verdict, const char* name, const std::string& detail) {
-    std::printf("  %-6s %-32s %s\n", verdict, name, detail.c_str());
+    emit("  %-6s %-32s %s", verdict, name, detail.c_str());
 }
 
 void pass(const char* name, const std::string& detail) { ++g_pass; row("PASS", name, detail); }
@@ -60,7 +75,7 @@ bool inModule(IMemory& mem, uintptr_t base, uintptr_t rva, size_t need) {
 
 void checkModuleOffsets(IMemory& mem, Nav& nav) {
     (void)nav;
-    std::printf("\n-- client.dll module-relative offsets --\n");
+    emit("\n-- client.dll module-relative offsets --\n");
 
     struct Item { const char* name; uintptr_t rva; size_t bytes; };
     const Item items[] = {
@@ -69,8 +84,8 @@ void checkModuleOffsets(IMemory& mem, Nav& nav) {
         { "dwLocalPlayerController", g_off.dwLocalPlayerController, 8 },
         { "dwViewMatrix",            g_off.dwViewMatrix,            64 },
         { "dwViewAngles",            g_off.dwViewAngles,            12 },
-        { "dwGameRules",             g_off.dwGameRules,             8 },
-        { "dwPlantedC4",             g_off.dwPlantedC4,             8 },
+
+
     };
 
     for (const Item& it : items) {
@@ -84,7 +99,7 @@ void checkModuleOffsets(IMemory& mem, Nav& nav) {
 
 void checkLocalPlayer(IMemory& mem, Nav& nav) {
     (void)mem;
-    std::printf("\n-- local player --\n");
+    emit("\n-- local player --\n");
 
     uintptr_t pawn = nav.localPawn();
     if (!pawn) {
@@ -150,7 +165,7 @@ void checkLocalPlayer(IMemory& mem, Nav& nav) {
 
 void checkEntityList(IMemory& mem, Nav& nav) {
     (void)mem;
-    std::printf("\n-- entity list --\n");
+    emit("\n-- entity list --\n");
 
     uintptr_t list = nav.entityList();
     if (!IMemory::plausible(list)) {
@@ -206,7 +221,7 @@ void checkEntityList(IMemory& mem, Nav& nav) {
 }
 
 void checkRuntimeVerified(IMemory& mem, Nav& nav) {
-    std::printf("\n-- runtime-verified block (offsets.cfg) --\n");
+    emit("\n-- runtime-verified block (offsets.cfg) --\n");
 
     auto unknown = [](const char* name, uintptr_t v) {
         if (offKnown(v)) return false;
@@ -304,50 +319,64 @@ void checkRuntimeVerified(IMemory& mem, Nav& nav) {
 
 } // namespace
 
-int main() {
-    logx::init("muei_verify");
-    loadOffsetOverrides([] {
-        wchar_t exe[MAX_PATH]{};
-        GetModuleFileNameW(nullptr, exe, MAX_PATH);
-        wchar_t* slash = wcsrchr(exe, L'\\');
-        if (slash) *(slash + 1) = L'\0';
-        return std::wstring(exe) + L"offsets.cfg";
-    }());
+int runSelfTest(const std::wstring& reportPath) {
+    g_pass = g_fail = g_skip = 0;
 
-    std::printf("muei 無影 offset verifier\n");
-    std::printf("build tag : %s\n", g_off.build);
-    std::printf("log       : %ls\n\n", logx::path());
+    FILE* f = nullptr;
+    if (_wfopen_s(&f, reportPath.c_str(), L"wb") != 0) f = nullptr;
+    g_out = f;
+
+    // UTF-8 BOM: the report contains 無影, and Notepad otherwise guesses an ANSI
+    // codepage and shows mojibake.
+    if (g_out) { fwrite("\xEF\xBB\xBF", 1, 3, g_out); }
+
+    emit("muei 無影 - live offset check");
+    emit("offsets : %s", g_off.build);
+    emit("");
 
     ProcUser mem;
     Nav nav(mem);
 
     if (!mem.attach(L"cs2.exe")) {
-        std::printf("FAIL  attach cs2.exe\n      %ls\n\n", mem.lastError().c_str());
-        std::printf("Is CS2 running, and is this shell elevated?\n");
+        emit("FAIL  cannot attach to cs2.exe");
+        emit("      %s", logx::narrow(mem.lastError()).c_str());
+        emit("");
+        emit("Start CS2, load a map, and run muei as administrator.");
+        if (g_out) { fclose(g_out); g_out = nullptr; }
         return 1;
     }
 
     nav.refresh();
     if (!nav.client()) {
-        std::printf("FAIL  client.dll not resolved\n");
+        emit("FAIL  client.dll did not resolve");
+        if (g_out) { fclose(g_out); g_out = nullptr; }
         return 1;
     }
-    std::printf("pid       : %lu\n", (unsigned long)mem.pid());
-    std::printf("client.dll: %p\n", (void*)nav.client());
+
+    emit("pid       : %lu", (unsigned long)mem.pid());
+    emit("client.dll: %p", (void*)nav.client());
 
     checkModuleOffsets(mem, nav);
     checkLocalPlayer(mem, nav);
     checkEntityList(mem, nav);
     checkRuntimeVerified(mem, nav);
 
-    std::printf("\n-- summary --\n");
-    std::printf("  pass %d   fail %d   skip %d\n", g_pass, g_fail, g_skip);
+    emit("");
+    emit("-- summary --");
+    emit("  pass %d   fail %d   skip %d", g_pass, g_fail, g_skip);
 
-    if (g_fail == 0) {
-        std::printf("\nRESULT: all checked offsets resolve.\n");
-        return 0;
+    const bool ok = (g_fail == 0);
+    if (ok) {
+        emit("");
+        emit("RESULT: every checked offset resolves. Nothing to do.");
+    } else {
+        emit("");
+        emit("RESULT: %d field(s) failed.", g_fail);
+        emit("Refresh offsets.cfg from a cs2-dumper snapshot of the same build.");
+        emit("Do not patch single fields - the RVAs and the schema have to come");
+        emit("from the same pass, or the table reads the wrong memory.");
     }
-    std::printf("\nRESULT: %d offset(s) failed. Do not enable features that use them;\n"
-                "        drop corrected values into offsets.cfg instead of rebuilding.\n", g_fail);
-    return 1;
+
+    if (g_out) { fclose(g_out); g_out = nullptr; }
+    return ok ? 0 : 1;
 }

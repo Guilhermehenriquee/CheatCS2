@@ -18,10 +18,6 @@
 enum class AimMode : int { Mouse = 0, Write = 1 };
 enum class AimKey  : int { RMB = 0, LMB = 1, Shift = 2, Alt = 3, XButton1 = 4 };
 
-// Which memory backend to try. Auto walks kernel -> dma -> user and keeps the
-// first that attaches; the explicit values force one for testing.
-enum class Backend : int { Auto = 0, User = 1, Kernel = 2, DMA = 3 };
-
 // Aim-point resolution strategy.
 enum class ResolveMode : int {
     None = 0,        // straight bone position
@@ -58,7 +54,6 @@ struct Config {
     int  triggerHoldMs    = 35;
     bool triggerTeamFlag  = true;
     bool triggerHeadOnly  = false;
-    bool triggerUseDriver = false;
 
     // ---------------------------------------------------------------- Aimbot --
     bool    aimbot         = false;
@@ -71,7 +66,6 @@ struct Config {
     bool    aimAutoFire    = false;
     float   aimMaxDist     = 3000.f;
     float   aimSens        = 2.5f;
-    bool    aimUseDriver   = false;
 
     // -------------------------------------------------------------- Resolver --
     bool        resolverOn          = true;
@@ -105,7 +99,6 @@ struct Config {
     bool  noFlash   = false;
     int   menuKey   = VK_INSERT;
     int   panicKey  = VK_END;
-    int   backend   = (int)Backend::Auto;
     float accentCol[4] = { 0.00f, 0.85f, 1.00f, 1.00f };
 
     bool load();

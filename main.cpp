@@ -1,11 +1,15 @@
 // muei 無影 - CS2 external overlay.
 //
-// This file is orchestration only: it picks a memory backend, builds one frame
-// snapshot per rendered frame, hands it to every feature, then draws. All real
-// work lives in core/, sdk/, features/ and ui/.
+// Pure external: one process, one ReadProcessMemory handle, one layered window
+// drawn on top of the game. No driver, no second machine, no service, nothing to
+// install beyond this exe.
+//
+// This file is orchestration only: attach, build one frame snapshot per rendered
+// frame, hand it to every feature, draw. All real work lives in core/, sdk/,
+// features/ and ui/.
 //
 // Layout:
-//   core/      memory backends, config, logging
+//   core/      process handle, config, logging
 //   sdk/       offsets, math, entity model, traversal
 //   features/  one file per cheat feature
 //   ui/        theme, D3D11 surface, menu
@@ -22,9 +26,8 @@
 
 #include "core/Config.h"
 #include "core/Log.h"
-#include "core/ProcDMA.h"
-#include "core/ProcKernel.h"
 #include "core/ProcUser.h"
+#include "core/SelfTest.h"
 
 #include "sdk/Frame.h"
 #include "sdk/Nav.h"
@@ -48,11 +51,8 @@ namespace {
 
 // ---------------------------------------------------------------- globals ---
 
-Config  g_cfg;
-ProcUser g_user;
-ProcKernel g_kernel;
-ProcDMA  g_dma;
-IMemory* g_mem = nullptr;
+Config   g_cfg;
+ProcUser g_mem;
 
 std::unique_ptr<Nav>    g_nav;
 Frame                   g_frame;
@@ -76,7 +76,7 @@ bool     g_prevMenuKey   = false;
 bool     g_prevPanic     = false;
 
 // Bounds the retry cost while the game is not running: without this the loop
-// re-runs the whole backend probe every two seconds and fills the log with the
+// retries the attach every two seconds and fills the log with the
 // same four lines forever.
 constexpr uint32_t kAttachBackoffMax = 30000;
 
@@ -175,72 +175,87 @@ DWORD findGamePidByWindow() {
     return ctx.pid;
 }
 
-// Try one backend: name search first, then the window owner (a launcher can hide
-// the process from a plain snapshot while leaving its window enumerable).
-bool tryAttach(IMemory& mem) {
-    if (mem.attach(L"cs2.exe")) return true;
-    logx::wide("attach by name failed", mem.lastError());
-
-    DWORD wpid = findGamePidByWindow();
-    if (!wpid) {
-        logx::line("no game window found either (is a map loaded?)");
-        return false;
-    }
-
-    logx::line("retrying attach by window-owner pid=%lu", (unsigned long)wpid);
-    if (mem.attachPid(wpid)) return true;
-    logx::wide("attach by pid failed", mem.lastError());
-    return false;
-}
+// Attach: name search first, then the window owner. A launcher can hide the
+// process from a plain snapshot while leaving its window enumerable, and CS2
+// itself is sometimes invisible to the snapshot route.
+void diagnoseOnce();
 
 bool attemptAttach() {
     g_attached = false;
-    g_mem = nullptr;
 
-    const Backend wanted = (Backend)g_cfg.backend;
+    if (g_mem.attach(L"cs2.exe")) goto attached;
+    logx::wide("attach by name failed", g_mem.lastError());
 
-    auto pick = [&](IMemory& mem) -> bool {
-        if (!tryAttach(mem)) {
-            mem.detach();
+    {
+        const DWORD wpid = findGamePidByWindow();
+        if (!wpid) {
+            logx::line("no game window either - is CS2 running with a map loaded?");
+            g_mem.detach();
             return false;
         }
-        g_mem = &mem;
-        return true;
-    };
 
-    if (wanted == Backend::Kernel)      pick(g_kernel);
-    else if (wanted == Backend::DMA)    pick(g_dma);
-    else if (wanted == Backend::User)   pick(g_user);
-    else {
-        // Auto: cheapest and most reliable first. DMA is last because a failed
-        // FPGA probe costs seconds, not milliseconds.
-        if (!pick(g_kernel)) {
-            if (!pick(g_user)) {
-                pick(g_dma);
-            }
-        }
+        logx::line("retrying attach by window-owner pid=%lu", (unsigned long)wpid);
+        if (g_mem.attachPid(wpid)) goto attached;
+        logx::wide("attach by pid failed", g_mem.lastError());
+        // fall through to the shared failure path
     }
 
-    if (!g_mem) {
-        logx::line("attach failed on every backend");
+    g_mem.detach();
+    return false;
+
+attached:
+    g_nav = std::make_unique<Nav>(g_mem);
+    g_nav->refresh();
+
+    if (!g_nav->client()) {
+        logx::line("attached but client.dll did not resolve");
+        g_mem.detach();
         return false;
     }
 
-    // Only the kernel backend can route input; the others get SendInput.
-    input::attachDriver(g_mem == &g_kernel ? &g_kernel : nullptr);
-
-    if (!g_nav) {
-        g_nav = std::make_unique<Nav>(*g_mem);
-    } else {
-        g_nav.reset(new Nav(*g_mem));
-    }
-    g_nav->refresh();
-
     g_attached = true;
-    logx::line("attached backend=%ls pid=%lu client=%p",
-               g_mem->backendName(), (unsigned long)g_mem->pid(),
+    logx::line("attached pid=%lu client=%p", (unsigned long)g_mem.pid(),
                (void*)g_nav->client());
+    diagnoseOnce();
     return true;
+}
+
+// ------------------------------------------------------------- diagnostics --
+// Run once per attach. Turns "0 players" into a specific reason: a stale RVA, a
+// missing spawn, or simply not being in a match. Without this the overlay looks
+// identical in all three cases.
+void diagnoseOnce() {
+    if (!g_nav) return;
+
+    const uintptr_t list = g_nav->entityList();
+    if (!IMemory::plausible(list)) {
+        logx::line("DIAG: entity list unreadable at client+0x%llX - offsets are stale, "
+                   "refresh offsets.cfg (run verify.bat)",
+                   (unsigned long long)g_off.dwEntityList);
+        return;
+    }
+
+    const uintptr_t local = g_nav->localPawn();
+
+    float m[16]{};
+    const bool viewOk = g_nav->viewMatrix(m);
+
+    std::vector<Player> players;
+    g_nav->scanPlayers(players, false);
+
+    logx::line("DIAG: list=%p local=%p viewmatrix=%s players=%zu",
+               (void*)list, (void*)local, viewOk ? "ok" : "FAIL", players.size());
+
+    if (!local) {
+        logx::line("DIAG: no local pawn - you are not spawned into a map yet");
+    }
+    if (!viewOk) {
+        logx::line("DIAG: view matrix unreadable - dwViewMatrix looks stale");
+    }
+    if (players.empty()) {
+        logx::line("DIAG: entity list resolved but no player records - either no "
+                   "enemies are alive, or the schema fields are stale");
+    }
 }
 
 // ------------------------------------------------------------- frame build --
@@ -282,13 +297,12 @@ void buildFrame() {
 }
 
 void tickFeatures() {
-    if (!g_attached || !g_mem || !g_nav) return;
-    if (!g_mem->alive()) {
+    if (!g_attached || !g_nav) return;
+    if (!g_mem.alive()) {
         logx::line("target process went away, dropping attachment");
         g_glow.restoreAll();
-        g_mem->detach();
+        g_mem.detach();
         g_attached = false;
-        g_mem = nullptr;
         return;
     }
 
@@ -296,7 +310,7 @@ void tickFeatures() {
     const bool wantWrite = g_cfg.glow || g_cfg.noFlash || g_cfg.skinChanger ||
                            g_cfg.aimMode == AimMode::Write ||
                            (g_cfg.aimbot && g_cfg.aimMode == AimMode::Write);
-    if (wantWrite) g_mem->canWrite();
+    if (wantWrite) g_mem.canWrite();
 
     g_bhop.tick(*g_nav, g_cfg, g_frame);
     g_rcs.tick(*g_nav, g_cfg, g_frame);
@@ -336,10 +350,7 @@ menu::Status buildStatus() {
     menu::Status st;
     st.attached  = g_attached;
     st.elevated  = g_elevated;
-    st.backend   = g_mem ? (g_mem == &g_kernel ? "kernel"
-                            : g_mem == &g_dma ? "dma" : "user")
-                         : "none";
-    st.pid       = g_mem ? (unsigned long)g_mem->pid() : 0;
+    st.pid       = g_attached ? (unsigned long)g_mem.pid() : 0;
     st.players   = (int)g_frame.players.size();
     st.aimTarget = g_aimbot.targetIndex();
     st.rcsReady  = RCS::available();
@@ -380,6 +391,21 @@ int WINAPI wWinMain(HINSTANCE, HINSTANCE, PWSTR, int) {
     g_elevated = isElevated();
     logx::line("integrity: %s", g_elevated ? "elevated" : "NOT elevated");
 
+    // ------------------------------------------------------------- --verify --
+    // Reports to muei_check.txt and opens it. Runs before the overlay exists so
+    // it works even when no surface can be created.
+    if (wcsstr(GetCommandLineW(), L"--verify") != nullptr) {
+        loadOffsetOverrides(exeDirFile(L"offsets.cfg"));
+
+        const std::wstring report = exeDirFile(L"muei_check.txt");
+        const int rc = runSelfTest(report);
+
+        ShellExecuteW(nullptr, L"open", L"notepad.exe", report.c_str(), nullptr,
+                      SW_SHOWNORMAL);
+        logx::line("self test finished, rc=%d, report=%ls", rc, report.c_str());
+        return rc;
+    }
+
     // ------------------------------------------------------------- data ----
     g_cfg.load();
     loadOffsetOverrides(exeDirFile(L"offsets.cfg"));
@@ -396,12 +422,7 @@ int WINAPI wWinMain(HINSTANCE, HINSTANCE, PWSTR, int) {
     attemptAttach();
 
     // --------------------------------------------------------- surface -----
-    DWORD surfacePid = 0;
-    if (g_mem) {
-        surfacePid = g_mem->pid();
-    } else {
-        surfacePid = findGamePidByWindow();
-    }
+    const DWORD surfacePid = g_attached ? g_mem.pid() : findGamePidByWindow();
 
     if (!g_overlay.init(surfacePid)) {
         logx::line("overlay init failed");
@@ -431,7 +452,7 @@ int WINAPI wWinMain(HINSTANCE, HINSTANCE, PWSTR, int) {
                 g_attachFails   = 0;
                 // A game window that appeared after we built our own surface is
                 // worth retargeting onto.
-                if (g_mem) g_overlay.refitToGame(g_mem->pid());
+                if (g_attached) g_overlay.refitToGame(g_mem.pid());
             } else {
                 ++g_attachFails;
                 uint32_t next = g_attachBackoff * 2;
@@ -466,7 +487,7 @@ int WINAPI wWinMain(HINSTANCE, HINSTANCE, PWSTR, int) {
 
     // ---------------------------------------------------------- shutdown ---
     g_glow.restoreAll();
-    if (g_mem) g_mem->detach();
+    g_mem.detach();
     g_cfg.save();
     g_overlay.shutdown();
 

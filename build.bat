@@ -45,7 +45,7 @@ echo [1/3] compiling
 
 for %%f in (
     main.cpp
-    core\Log.cpp core\ProcUser.cpp core\ProcKernel.cpp core\ProcDMA.cpp core\Config.cpp
+    core\Log.cpp core\ProcUser.cpp core\Config.cpp core\SelfTest.cpp
     sdk\Offsets.cpp sdk\Nav.cpp
     features\Input.cpp features\Resolver.cpp features\Aimbot.cpp features\Triggerbot.cpp
     features\Bhop.cpp features\Glow.cpp features\RCS.cpp features\SkinChanger.cpp

@@ -524,10 +524,11 @@ void sidebar(ImDrawList* d, ImVec2 b, State& state, const Status& status, bool& 
     const ImVec2 foot = b + ImVec2(8.f, kShellH - 62.f);
     d->AddRectFilled(foot, foot + ImVec2(kSidebarW - 20.f, 46.f), theme::col::card(), 8.f);
     d->AddRect(foot, foot + ImVec2(kSidebarW - 20.f, 46.f), theme::col::cardBorder(), 8.f);
+    const bool live = status.attached;
     d->AddCircleFilled(foot + ImVec2(14.f, 16.f), 3.2f,
-                       status.attached ? theme::col::good() : theme::col::bad());
-    TxtY(d, foot.x + 24.f, foot.y + 6.f, 20.f, theme::col::label(), status.backend,
-         T_SMALL, theme::fontSmall());
+                       live ? theme::col::good() : theme::col::bad());
+    TxtY(d, foot.x + 24.f, foot.y + 6.f, 20.f, theme::col::label(),
+         live ? "external" : "offline", T_SMALL, theme::fontSmall());
     char line[64];
     std::snprintf(line, sizeof(line), "pid %lu", status.pid);
     TxtY(d, foot.x + 24.f, foot.y + 24.f, 16.f, theme::col::caption(), line, T_SMALL - 1.f,
@@ -582,12 +583,12 @@ void pageAimbot(ImDrawList* d, ImVec2 b, Config& cfg, bool& changed) {
     cfg.aimMode = (AimMode)mode;
     cfg.aimKey  = (AimKey)key;
 
-    Card(d, ImVec2(xr, y), CR, 5, "AIM");
+    Card(d, ImVec2(xr, y), CR, 4, "AIM");
     changed |= RowSlider(d, xr, y, CR, "a.fov", "Field of view", &cfg.aimFov, 1.f, 60.f, "%.1f", true);
     changed |= RowSlider(d, xr, y + 37.f, CR, "a.sm", "Smoothing", &cfg.aimSmooth, 1.f, 20.f, "%.2f", false);
     changed |= RowSlider(d, xr, y + 74.f, CR, "a.md", "Max distance", &cfg.aimMaxDist, 200.f, 8000.f, "%.0f", false);
     changed |= RowSlider(d, xr, y + 111.f, CR, "a.sn", "Sensitivity", &cfg.aimSens, 0.1f, 10.f, "%.2f", false);
-    changed |= RowToggle(d, xr, y + 148.f, CR, "a.drv", "Driver input", &cfg.aimUseDriver, false);
+
 
     const float y2 = y + 6.f * kRowH + 26.f;
 
@@ -711,13 +712,12 @@ void pageMisc(ImDrawList* d, ImVec2 b, Config& cfg, const Status& status, bool& 
     changed |= RowToggle(d, x0, y + 37.f, CW, "m.as", "Auto strafe", &cfg.bhopAutoStrafe, false);
 
     const float yT = y + 2.f * kRowH + 26.f;
-    Card(d, ImVec2(x0, yT), CW, 6, "TRIGGERBOT");
+    Card(d, ImVec2(x0, yT), CW, 5, "TRIGGERBOT");
     changed |= RowToggle(d, x0, yT, CW, "t.ena", "Enable triggerbot", &cfg.triggerbot, true);
     changed |= RowToggle(d, x0, yT + 37.f, CW, "t.tm", "Enemies only", &cfg.triggerTeamFlag, false);
     changed |= RowToggle(d, x0, yT + 74.f, CW, "t.hd", "Head check", &cfg.triggerHeadOnly, false);
     changed |= RowSliderInt(d, x0, yT + 111.f, CW, "t.dl", "Delay", &cfg.triggerDelayMs, 0, 250, false);
     changed |= RowSliderInt(d, x0, yT + 148.f, CW, "t.ho", "Hold time", &cfg.triggerHoldMs, 1, 200, false);
-    changed |= RowToggle(d, x0, yT + 185.f, CW, "t.dr", "Driver click", &cfg.triggerUseDriver, false);
 
     static const char* panics[] = { "End", "F1", "F2", "Delete", "Insert" };
     static const int   panicVals[] = { VK_END, VK_F1, VK_F2, VK_DELETE, VK_INSERT };
@@ -747,24 +747,25 @@ void pageMisc(ImDrawList* d, ImVec2 b, Config& cfg, const Status& status, bool& 
 void pageConfig(ImDrawList* d, ImVec2 b, Config& cfg, const Status& status, bool& changed) {
     const float x0 = b.x + X0, xr = b.x + XR, y = b.y + Y0;
 
-    static const char* backends[] = { "Auto", "User handle", "Kernel driver", "DMA" };
     static const char* menuKeys[] = { "Insert", "F1", "F2", "Home", "Delete" };
     static const int   menuVals[] = { VK_INSERT, VK_F1, VK_F2, VK_HOME, VK_DELETE };
 
     int menuIdx = 0;
     for (int i = 0; i < 5; ++i) if (menuVals[i] == cfg.menuKey) menuIdx = i;
 
-    Card(d, ImVec2(x0, y), CW, 3, "MEMORY");
-    changed |= RowSelect(d, x0, y, CW, "c.bk", "Backend", &cfg.backend, backends, 4, true);
-    changed |= RowSelect(d, x0, y + 37.f, CW, "c.mk", "Menu key", &menuIdx, menuKeys, 5, false);
+    Card(d, ImVec2(x0, y), CW, 2, "OVERLAY");
+    changed |= RowSelect(d, x0, y, CW, "c.mk", "Menu key", &menuIdx, menuKeys, 5, true);
     cfg.menuKey = menuVals[menuIdx];
-    RowInfo(d, x0, y + 74.f, CW, "Backend in use", status.backend,
-            status.attached ? theme::col::good() : theme::col::bad(), false);
+
+    char buf[64];
+    std::snprintf(buf, sizeof(buf), "%lu", status.pid);
+    RowInfo(d, x0, y + 37.f, CW, "Process id", status.pid ? buf : "none",
+            status.pid ? theme::col::label() : theme::col::labelDim(), false);
 
     Card(d, ImVec2(xr, y), CR, 1, "THEME");
     changed |= RowColor(d, xr, y, CR, "c.ac", "Accent", cfg.accentCol, true);
 
-    const float yF = y + 3.f * kRowH + 26.f;
+    const float yF = y + 2.f * kRowH + 26.f;
     Card(d, ImVec2(x0, yF), CW, 3, "FILE");
     if (RowButton(d, x0, yF, CW, "c.sv", "Save now", "write", true)) {
         cfg.save();
@@ -780,14 +781,13 @@ void pageConfig(ImDrawList* d, ImVec2 b, Config& cfg, const Status& status, bool
 
     const float ySt = y + 1.f * kRowH + 26.f;
     Card(d, ImVec2(xr, ySt), CR, 5, "STATUS");
-    char buf[64];
 
-    std::snprintf(buf, sizeof(buf), "%lu", status.pid);
-    RowInfo(d, xr, ySt, CR, "Process id", buf,
-            status.pid ? theme::col::label() : theme::col::labelDim(), true);
+    RowInfo(d, xr, ySt, CR, "Game",
+            status.attached ? "attached" : "not attached",
+            status.attached ? theme::col::good() : theme::col::bad(), true);
 
     std::snprintf(buf, sizeof(buf), "%d", status.players);
-    RowInfo(d, xr, ySt + 37.f, CR, "Entities", buf, theme::col::label(), false);
+    RowInfo(d, xr, ySt + 37.f, CR, "Players", buf, theme::col::label(), false);
 
     RowInfo(d, xr, ySt + 74.f, CR, "Recoil offsets",
             status.rcsReady ? "ready" : "missing",

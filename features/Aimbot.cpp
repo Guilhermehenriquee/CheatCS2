@@ -99,7 +99,7 @@ void Aimbot::tick(const Nav& nav, const Config& cfg, const Frame& frame) {
     }
 
     if (cfg.aimAutoFire && !firing_) {
-        input::leftButton(true, cfg.aimUseDriver);
+        input::leftButton(true);
         firing_    = true;
         fireUntil_ = GetTickCount64() + 40;
     }

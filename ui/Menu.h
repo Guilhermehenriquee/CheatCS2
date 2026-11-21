@@ -27,7 +27,6 @@ enum Tab {
 struct Status {
     bool        attached   = false;
     bool        elevated   = false;
-    const char* backend    = "none";
     unsigned long pid      = 0;
     int         players    = 0;
     int         aimTarget  = -1;

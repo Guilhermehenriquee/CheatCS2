@@ -32,7 +32,7 @@ Abra `muei_log.txt` na mesma pasta. Ele diz o motivo exato de cada backend ter f
 Com CS2 aberto, numa partida, rodando como administrador:
 
 ```
-verify.bat
+muei.exe --verify
 ```
 
 Imprime PASS/FAIL campo por campo. Se algum falhar depois de uma atualização do jogo, edite `offsets.cfg` (copie de `offsets.cfg.example`) e reinicie — sem recompilar.
@@ -41,14 +41,13 @@ Imprime PASS/FAIL campo por campo. Se algum falhar depois de uma atualização d
 
 ```
 muei.exe              overlay (estático, 4.2 MB, sem dependências)
-verify.exe            verificador de offsets
 run.bat               atalho: eleva, verifica, abre
-verify.bat            roda só o verificador
 build.bat             recompila com MSVC
 build_mingw.bat       recompila com MinGW (não precisa do VS)
 offsets.cfg.example   todos os campos, para sobrescrever sem rebuild
 muei.cfg              criado no primeiro run (suas configurações)
 muei_log.txt          criado no primeiro run (diagnóstico)
+muei_check.txt        criado pelo `muei.exe --verify`
 ```
 
 Fontes completos em `core/ sdk/ features/ ui/ imgui/ vendor/`. Veja `README.md`.

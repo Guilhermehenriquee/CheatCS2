@@ -58,7 +58,7 @@ void Triggerbot::tick(const Nav& nav, const Config& cfg, const Frame& frame) {
 
     if (GetTickCount64() - armedAt_ < (uint64_t)cfg.triggerDelayMs) return;
 
-    input::leftButton(true, cfg.triggerUseDriver);
+    input::leftButton(true);
     firing_  = true;
     fireAt_  = GetTickCount64();
 
