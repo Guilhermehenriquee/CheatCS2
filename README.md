@@ -27,6 +27,17 @@ muei/
 └── app.manifest requireAdministrator
 ```
 
+## Releases
+
+Prebuilt packages are attached to tags on GitHub:
+
+| tag | contents |
+|---|---|
+| `v2026.11.21-single-external` | current � single external build, current offsets |
+| `v2026.11.07-1636` | older, still had the driver/DMA backends |
+
+Download the zip, unblock it (Properties ? Unblock) before extracting if Windows
+complains about an unsigned binary, then run `run.bat` as administrator.
 ## Build
 
 ```
